@@ -15,7 +15,7 @@ return {
               justMyCode = false,
               console = "integratedTerminal",
             },
-            args = { "--log-level", "DEBUG", "--quiet" },
+            args = { "--log-level", "DEBUG", "--quiet", "-vv"},
             runner = "pytest",
             python = vim.fn.getcwd() .. "/venv/bin/python"
           })
