@@ -12,7 +12,7 @@ return {
 					"gopls",
 					"pyright",
 					"pylsp",
-          "tsserver",
+					"tsserver",
 				},
 				auto_install = true,
 			})
@@ -26,6 +26,11 @@ return {
 			local lspconfig = require("lspconfig")
 			lspconfig.gopls.setup({})
 			lspconfig.tsserver.setup({})
+			--lspconfig.sqls.setup({
+			--	on_attach = function(client, bufnr)
+			--		require("sqls").on_attach(client, bufnr)
+			--	end,
+			--})
 			lspconfig.lua_ls.setup({
 				capabilities = capabilities,
 			})
@@ -40,7 +45,7 @@ return {
 					pythonPath = vim.fn.getcwd() .. "/venv/bin/python3",
 				},
 			})
-      lspconfig.tsserver.setup {}
+			lspconfig.tsserver.setup({})
 			lspconfig.lua_ls.setup({
 				capabilities = capabilities,
 			})
