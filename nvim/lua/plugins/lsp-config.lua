@@ -1,36 +1,12 @@
 return {
 	{
-		"williamboman/mason-lspconfig.nvim",
-		lazy = false,
-		opts = {
-			auto_install = true,
-		},
-		config = function()
-			local mason_lspconfig = require("mason-lspconfig")
-			mason_lspconfig.setup({
-				ensure_installed = {
-					"gopls",
-					"pyright",
-					"pylsp",
-					"tsserver",
-				},
-				auto_install = true,
-			})
-		end,
-	},
-	{
 		"neovim/nvim-lspconfig",
 		lazy = false,
 		config = function()
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 			local lspconfig = require("lspconfig")
-			lspconfig.gopls.setup({})
-			lspconfig.tsserver.setup({})
-			--lspconfig.sqls.setup({
-			--	on_attach = function(client, bufnr)
-			--		require("sqls").on_attach(client, bufnr)
-			--	end,
-			--})
+			-- lspconfig.gopls.setup({})
+			lspconfig.ts_ls.setup({})
 			lspconfig.lua_ls.setup({
 				capabilities = capabilities,
 			})
@@ -44,10 +20,6 @@ return {
 					},
 					pythonPath = vim.fn.getcwd() .. "/venv/bin/python3",
 				},
-			})
-			lspconfig.tsserver.setup({})
-			lspconfig.lua_ls.setup({
-				capabilities = capabilities,
 			})
 			vim.keymap.set("n", "<leader>h", vim.lsp.buf.hover, {})
 			vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})

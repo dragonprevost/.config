@@ -6,6 +6,7 @@ return {
 			"nvim-lua/plenary.nvim",
 			"antoinemadec/FixCursorHold.nvim",
 			"nvim-neotest/neotest-python",
+			"nvim-neotest/nvim-nio",
 		},
 		config = function()
 			require("neotest").setup({
