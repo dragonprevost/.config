@@ -5,8 +5,8 @@ return {
 		config = function()
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 			local lspconfig = require("lspconfig")
-			-- lspconfig.gopls.setup({})
-			lspconfig.ts_ls.setup({})
+			lspconfig.gopls.setup({capabilities = capabilities})
+			lspconfig.ts_ls.setup({capabilities = capabilities})
 			lspconfig.lua_ls.setup({
 				capabilities = capabilities,
 			})
@@ -36,6 +36,12 @@ return {
 					vim.keymap.set("n", "<leader>mv", vim.lsp.util.rename)
 				end,
 			})
+      vim.filetype.add({
+        extension = {
+          graphql = "graphql",
+          gql = "graphql",
+        },
+      })
 		end,
 	},
 }
